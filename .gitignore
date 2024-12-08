@@ -1,0 +1,7 @@
+# Exclude virtual environment folder
+.venv/
+
+# Other files/directories to ignore
+__pycache__/
+*.pyc
+db.sqlite3

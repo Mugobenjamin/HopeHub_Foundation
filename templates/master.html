@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>HopeHub Foundation</title>
+    {% load static  %}
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{% static 'static/assets/img/slide/hope.webp' %}" rel="icon">
+    <link href="{% static 'static/assets/img/slide/hope.webp' %}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <!--Bootstrap links-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'assets/css/styles.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ======= Admin Header ======= -->
+{% if user.is_admin %}
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <div class="logo">
+                <h1><a href="{% url 'home-url' %}">HopeHub Foundation</a></h1>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a href="{% url 'home-url' %}">Home</a></li>
+                    <li><a href="{% url 'add-event-url' %}">create event</a></li>
+                    <li><a href="{% url 'about-url' %}">About</a></li>
+                    <li><a href="{% url 'services-url' %}">projects</a></li>
+                    <li><a href="{% url 'gallery-url' %}">Gallery</a></li>
+                    <li><a href="{% url 'team-url' %}">Team</a></li>
+                    <li><a href="{% url 'contact-url' %}">Contact</a></li>
+                    <!--<li><a href="{% url 'register-url' %}">Become a member</a></li>-->
+
+                    <li><a href="{% url 'donate-url' %}"><button class=" btn btn-outline-danger"><span class="donate">Donate Now</span> </button></a></li>
+                    <li class="dropdown"><a href="#"><span><strong>{{ user.username }}, </strong><strong class="text-light">Admin</strong></span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="{% url 'logout-url' %} ">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+            <!-- .navbar -->
+        </div>
+    </header>
+<!-- End of Admin Header -->
+
+ <!-- start of member Header -->
+{% elif user.is_authenticated %}
+
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <div class="logo">
+                <h1><a href="{% url 'home-url' %}">HopeHub Foundation</a></h1>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a href="{% url 'home-url' %}">Home</a></li>
+                    <li><a href="{% url 'member-profile-url' user.id %}">Your profile</a></li>
+                    <li><a href="{% url 'about-url' %}">About</a></li>
+                    <li><a href="{% url 'services-url' %}">projects</a></li>
+                    <li><a href="{% url 'gallery-url' %}">Gallery</a></li>
+                    <li><a href="{% url 'team-url' %}">Team</a></li>
+                    <li><a href="{% url 'contact-url' %}">Contact</a></li>
+                    <li><a href="{% url 'donate-url' %}"><button class=" btn btn-outline-light"><span class="donate">Donate Now</span> </button></a></li>
+                    <li class="dropdown"><a href="#"><span><strong>{{ user.username }}, </strong><strong class="text-light">Member</strong></span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="{% url 'logout-url' %} ">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+            <!-- .navbar -->
+
+        </div>
+    </header>
+<!-- End Of member Header -->
+    <!-- start of unauthorized user Header -->
+{% else %}
+
+    <header id="header" class="d-flex  align-items-center">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <div class="logo">
+                <h1><a href="{% url 'home-url' %}">HopeHub Foundation</a></h1>
+            </div>
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a href="{% url 'home-url' %}">Home</a></li>
+                    <li><a href="{% url 'about-url' %}">About</a></li>
+                    <li><a href="{% url 'services-url' %}">projects</a></li>
+                    <li><a href="{% url 'gallery-url' %}">Gallery</a></li>
+                    <li><a href="{% url 'team-url' %}">Team</a></li>
+                    <li><a href="{% url 'contact-url' %}">Contact</a></li>
+                    <li><a href="{% url 'register-url' %}">Become a member</a></li>
+                    <li><a href="{% url 'donate-url' %}"><button class=" btn btn-outline-light"><span class="donate">Donate Now</span> </button></a></li>
+                    <li class="dropdown"><a href="#"><span>Login</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="{% url 'login-url' %}">Login</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+            <!-- .navbar -->
+
+        </div>
+    </header>
+{% endif %}
+<!-- End of unauthorized user Header -->
+
+<!--start of message alert-->
+{% if messages %}
+    {% for message in messages %}
+        <div class="container">
+            <div class="alert  alert-dismissible fade show text-center ml-50" role="alert">
+                <strong class="text-center text-dark">{{message}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+{% block content %}
+
+
+
+{% endblock %}
+<!-- ======= Partners Section ======= -->
+<section id="clients" class="clients">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Partners</h2>
+            <p>As HopeHub Foundation we have partnered with several organizations to help us realize our objective. These organizations are as below.</p>
+        </div>
+
+        <div class="clients-slider swiper">
+            <div class="swiper-wrapper align-items-center">
+                <div class="swiper-slide"><img src="{% static 'assets/img/partners/kenyahuman.png' %}" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="{% static 'assets/img/partners/handsofhope.jpeg' %}" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="{% static 'assets/img/partners/muthengifoundation.png' %}" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="{% static 'assets/img/partners/agakhanfoundation.png' %}" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="{% static 'assets/img/partners/worldfriends.jpeg' %}" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="{% static 'assets/img/partners/mamadoinggood.png' %}" class="img-fluid" alt=""></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+    </div>
+</section>
+<!-- End partners Section -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+
+    <div class="footer-newsletter">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h4>Our Newsletter</h4>
+                    <p>Kindly subscribe to our Newsletter to receive news and updates.</p>
+                </div>
+                <div class="col-lg-6">
+                    <form action="" method="post">
+                        <input type="email" name="email"><input type="submit" value="Subscribe">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{% url 'home-url' %}">Home</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{% url 'donate-url' %}">Donate</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{% url 'about-url' %}">About us</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{% url 'contact-url' %}">Contact</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{% url 'services-url' %}">services</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Home To Home Donation</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Children's Home Visiting</a></li>
+                        <!--<li><i class="bx bx-chevron-right"></i> <a href="#">Rehabilitation Services</a></li>-->
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Mentorship</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Scholarships</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>
+                        P.O BOX  972-60200<br>
+                        NAIROBI - KENYA<br><br>
+                        <strong>Phone:</strong> +254745326134<br>
+                        <strong>Email:</strong> mugobenjami28@gmail.com<br>
+                    </p>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-info">
+                    <h3>Social Media</h3>
+                    <p>Connect with us across the following social media platforms</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong><span>HopeHub Foundation</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+            Designed by <a href="#">Benjamin Mugo</a>
+        </div>
+    </div>
+</footer>
+<!-- End Footer -->
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'assets/vendor/waypoints/noframework.waypoints.js' %}"></script>
+<script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+<!-- Template Main JS File -->
+<script
+        src="{% static 'assets/js/main.js' %}">
+</script>
+</body>
+
+</html>

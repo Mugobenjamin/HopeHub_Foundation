@@ -1,0 +1,89 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content %}
+
+
+<main id="main">
+
+<!-- ======= Breadcrumbs ======= -->
+        <section id="breadcrumbs" class="breadcrumbs">
+            <div class="container">
+
+                <ol>
+                    <li><a href="{% url 'home-url' %}">Home</a></li>
+                    <li class="text-light">Team</li>
+                </ol>
+                <h2 class="text-center">Team</h2>
+
+            </div>
+        </section>
+<!-- End Breadcrumbs -->
+
+<!-- ======= Team Section ======= -->
+        <section id="team" class="team text-light">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="member">
+                            <img src="{% static 'assets/img/team/dp1.jpeg' %}" alt="">
+                            <h4>Benjamin Mugo</h4>
+                            <span>Chair</span>
+                            <p>
+                                As the Chair of HopeHub Foundation, I am dedicated to leading our organization with passion and commitment.
+                            </p>
+                            <div class="social">
+                                <a href=""><i class="bi bi-twitter"></i></a>
+                                <a href=""><i class="bi bi-facebook"></i></a>
+                                <a href=""><i class="bi bi-instagram"></i></a>
+                                <a href=""><i class="bi bi-linkedin"></i></a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="member">
+                            <img src={% static 'assets/img/team/dp2.jpg' %} alt="">
+                            <h4>Samuel Mutua</h4>
+                            <span>Vice CHair</span>
+                            <p>
+                                As the Vice Chair of HopeHub Foundation, I am honored
+                                to play a pivotal role in supporting our mission to make a meaningful difference in the lives of others.
+                            </p>
+                            <div class="social">
+                                <a href=""><i class="bi bi-twitter"></i></a>
+                                <a href=""><i class="bi bi-facebook"></i></a>
+                                <a href=""><i class="bi bi-instagram"></i></a>
+                                <a href=""><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="member">
+                            <img src="{% static 'assets/img/team/dpf.jpg' %}" alt="">
+                            <h4>Catherine Wanjiku</h4>
+                            <span>Members' Representative</span>
+                            <p>
+                                As the Members' Representative of HopeHub Foundation,
+                                I am dedicated to ensuring that the voices and perspectives of our members are heard and valued.
+
+                            </p>
+                            <div class="social">
+                                <a href=""><i class="bi bi-twitter"></i></a>
+                                <a href=""><i class="bi bi-facebook"></i></a>
+                                <a href=""><i class="bi bi-instagram"></i></a>
+                                <a href=""><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+<!-- End Team Section -->
+</main>
+<!-- End #main -->
+{% endblock %}

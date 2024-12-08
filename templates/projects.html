@@ -1,0 +1,104 @@
+{% extends 'master.html' %}
+{%  load static %}
+{% block content %}
+
+<main id="main">
+
+<!-- ======= Breadcrumbs ======= -->
+        <section id="breadcrumbs" class="breadcrumbs">
+            <div class="container">
+
+                <ol>
+                    <li><a href="{% url 'home-url' %}">Home</a></li>
+                    <li class="text-light">Projects</li>
+                </ol>
+
+            </div>
+        </section>
+<!-- End Breadcrumbs -->
+
+
+<!-- ======= Projects Section ======= -->
+        <section id="skills" class="skills">
+            <div class="container">
+
+                <div class="section-title">
+                    <h2>Our Projects</h2>
+                    <p>As HopeHub Foundation, we usually engage in various projects every year to ensure we impact the society through charity.</p>
+                </div>
+                <!--Children's home support section-->
+                <section id="about" class="about">
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <img src="{% static 'assets/img/project/childrenshome.jpeg' %}" class="img-fluid" alt="">
+                            </div>
+                            <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                <h3 class="text-center text-dark"> Bringing Joy and Support to Children's Homes</h3>
+                                <p class="text-center">
+                                    In this initiative, we regularly visit children's homes, providing donations of clothing and food items while assisting with cleaning activities. Additionally, we actively
+                                    participate in recreational games with the children, fostering an environment of joy and encouragement
+                                </p>
+                                <div class="text-center">
+                                    <a href="{% url 'donate-url' %}" class=""><button class="btn btn-info mt-3"><span class="donate-event-btn">Donate Now</span></button></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+                <!--End of Children's support section-->
+                <!--Start of street children support section-->
+                <section id="about" class="about">
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <img src="{% static 'assets/img/project/streetchildren.jpeg' %}" class="img-fluid" alt="">
+                            </div>
+                            <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                <h3 class="text-center text-dark">Empowering Street Children</h3>
+                                <p class="text-center">
+                                    In this project, we regularly reach out to underprivileged street children, providing them with essential necessities like food and clothing. Additionally,
+                                    we collaborate with rehabilitation centers to offer them the support needed for a better future
+                                </p>
+                                <div class="text-center">
+                                    <a href="{% url 'donate-url' %}" class=""><button class="btn btn-info mt-3"><span class="donate-event-btn">Donate Now</span></button></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+                <!--end of street children support  section-->
+                <!--start of home to home donation section-->
+                <section id="about" class="about">
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <img src="{% static 'assets/img/project/homedonations.jpeg' %}" class="img-fluid" alt="">
+                            </div>
+                            <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                <h3 class="text-center text-dark">Home To Home Donation</h3>
+                                <p class="text-center">
+                                    We conduct home-to-home outreach initiatives to ensure we reach and support the elderly in our community, leaving no one behind.
+                                </p>
+                                <div class="text-center">
+                                    <a href="{% url 'donate-url' %}" class=""><button class="btn btn-info mt-3"><span class="donate-event-btn">Donate Now</span></button></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+                <!--End of home to home donation section-->
+
+            </div>
+        </section>
+    <!-- End Our Skills Section -->
+
+    </main>
+    <!-- End #main -->
+{%  endblock %}
